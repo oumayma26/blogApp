@@ -7,11 +7,14 @@ const UserModel = mongoose.model("user", User)
 
 const article = new mongoose.Schema({
 
-    title: String,
+    title: {
+        type: String,
+        unique: true,
+        required: true
+    },
     context: String,
-    date : Number,
-  
-     author: {type : Schema.Types.ObjectId , ref : "user"}
+    date: { type: Number,   default: Date.now},
+   author: {type : Schema.Types.ObjectId , ref : "user"}
 })
 
 

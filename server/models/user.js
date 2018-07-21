@@ -18,7 +18,7 @@ const user = new mongoose.Schema({
         required: true
     },
     password: String,
-    date: { type: Number,   default: function(){return new Date().getTime()} },
+    date: { type: Number,   default: Date.now},
     articles: [{
         type: Schema.Types.ObjectId,
         ref: "article"

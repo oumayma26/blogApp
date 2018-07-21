@@ -7,7 +7,7 @@ const mongoose = require("mongoose"),
 
 const jwt = require("jsonwebtoken");
 
-mongoose.connect("mongodb://localhost:27017/blogApp")
+mongoose.connect("mongodb://localhost:27017/blogApp", {useNewUrlParser: true})
 
 const User = require("../models/user")
 const UserModel = mongoose.model("users", User)
@@ -24,9 +24,7 @@ router.post('/login', async (req, res) => {
                     res.send({message: "User found", token : token});
                   }else {
                     res.send({message: "User not found"});
-                  }
-
-        
+                  }  
      }
 });
 
