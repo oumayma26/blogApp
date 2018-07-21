@@ -15,7 +15,19 @@ router.get("/sortByDate", async(req,res)=>{
     res.send(result)
 });
 
+router.get("/delete/:id",(req,res)=>{
+     articleModel.findByIdAndRemove(
+        {_id: req.params.id} ).exec();
+   
+    res.send("ok");
+   
+})
 
+router.post("/update/:id", async(req,res)=>{ 
+    const result = await articleModel.findByIdAndUpdate({_id: req.params.id}, req.body).exec()
+    res.send(result)
+
+})
 
 router.post("/save", async(req,res)=> {
     articleModel(req.body).save(err => {

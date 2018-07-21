@@ -18,7 +18,7 @@ router.post('/login', async (req, res) => {
         username: req.body.username
     }).exec();
     if (result) {
-          const res3 = bcrypt.compareSync( req.body.password,result.password);//, function(err, result2) {
+          const res3 = bcrypt.compareSync( req.body.password,result.password);
                   if(res3==true){
                     const token = jwt.sign({data: result},  'oumayma')
                     res.send({message: "User found", token : token});

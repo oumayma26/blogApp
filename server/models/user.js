@@ -18,7 +18,7 @@ const user = new mongoose.Schema({
         required: true
     },
     password: String,
-    date: { type: Number,   default: Date.now},
+    date: { type: Number, default: Date.now},
     articles: [{
         type: Schema.Types.ObjectId,
         ref: "article"

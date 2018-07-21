@@ -13,8 +13,8 @@ const article = new mongoose.Schema({
         required: true
     },
     context: String,
-    date: { type: Number,   default: Date.now},
-   author: {type : Schema.Types.ObjectId , ref : "user"}
+    date: { type: Number, default: Date.now},
+    author: {type : Schema.Types.ObjectId , ref : "user"}
 })
 
 
