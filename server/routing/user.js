@@ -79,14 +79,14 @@ const articleModel = mongoose.model("article", article)
     let index= req.params.index;
     const u = await UserModel.findOne({username:req.params.username}).exec();
     console.log(u)
-    const result =  UserModel.findByIdAndUpdate({id: u.id},
+    const result = await UserModel.findByIdAndUpdate({_id: u.id},
         { $pull : {
-            "articles": req.params.articleId
-          //  "articles":{ _id: mongoose.Types.ObjectId(req.params.articleId) }
+           "articles": req.params.articleId
         }
     })
 
     res.send(result)
   })
 
-module.exports = router;
+    
+   module.exports = router;
